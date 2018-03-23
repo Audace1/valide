@@ -20,8 +20,9 @@ from sklearn.pipeline import Pipeline
 
 class Preprocessor(BaseEstimator):
     def __init__(self):
-        estimators = [('clustering',AgglomerativeClustering(n_clusters=32)),
-                      ('reduce_dim', PCA(n_components=2))]
+        estimators = [('clustering',AgglomerativeClustering(n_clusters=32),
+                       ('reduce_dim', PCA(n_components=2))
+                      ]
         pipe = Pipeline(estimators)
         self.transformer = pipe
         
